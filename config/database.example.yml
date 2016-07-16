@@ -1,0 +1,19 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: goals-viewer_development
+  pool:     5
+  username: _yours_
+  password: _yours_
+  template: template0
+
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: goals-viewer_test
+  pool:     5
+  username: _yours_
+  password: _yours_
+  template: template0

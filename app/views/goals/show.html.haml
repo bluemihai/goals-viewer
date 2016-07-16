@@ -1,0 +1,13 @@
+%h4= "Goal ##{@goal.id}"
+
+%p
+  %b Title
+  = link_to @goal.title, @goal.issue_path
+
+%p
+  %b Created By
+  = link_to @goal.created_by, User.github_path(@goal.created_by)
+
+= link_to 'Edit', edit_goal_path(@goal)
+\|
+= link_to 'Back', goals_path

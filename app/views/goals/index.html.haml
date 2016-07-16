@@ -1,0 +1,29 @@
+%h1 Goals
+
+%p
+  Last Sync:
+  = Goal.last_update.strftime('%b-%d %H:%M %Z')
+
+%table
+  %thead
+    %tr
+      %th Goal #
+      %th Title
+      %th Author
+      %th Created
+      %th
+      %th
+
+  %tbody
+    - @goals.each do |goal|
+      %tr
+        %td= link_to goal.id, goal.issue_path, title: 'See GitHub Issue/Goal'
+        %td= link_to goal.title, goal
+        %td= link_to goal.created_by, User.github_path(goal.created_by)
+        %td= goal.created.strftime('%b-%d')
+        %td= link_to 'Edit', edit_goal_path(goal)
+        %td= link_to 'Destroy', goal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Goal', new_goal_path
