@@ -8,3 +8,14 @@
   text-align: center;
   padding: 5px 5px;
 }
+
+div.container { max-width: 1200px }
+
+#goals-table_length {
+  background-color: yellow;
+  width: 100%;
+  display: table-cell;
+  label: {
+    display: inline;
+  }
+}
