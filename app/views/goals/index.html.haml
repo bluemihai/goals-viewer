@@ -1,6 +1,7 @@
 %table#goals-table.display.compact.nowrap{"cellspacing" => 0, "width" => "100%"}
   %thead
     %tr
+      %th
       %th.text-center #
       %th Labels
       %th Goal Title
@@ -14,11 +15,12 @@
   %tbody
     - @goals.each do |goal|
       %tr
+        %td= link_to goal.description
         %td.text-center= link_to goal.id, goal.issue_path, title: 'See GitHub Issue/Goal'
         %td= render 'labels', goal: goal
         %td
           = link_to "#{goal.title}...", goal
-          = link_to do
+          = link_to goal.issue_path do
             = image_tag(asset_path('octocat.png'), width: 30, height: 30)
         %td.text-center= link_to goal.created_by, User.github_path(goal.created_by)
         %td.text-center= goal.created.strftime('%m/%d')
