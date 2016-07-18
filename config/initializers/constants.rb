@@ -1,13 +1,28 @@
 INTEREST_OPTIONS = [
-  ['Zero', 0],
-  ['Some', 1],
-  ['Considerable', 2],
-  ['Tons', 3],
+  ['Not interested', 0],
+  ['Somewhat interested', 1],
+  ['Interested', 2],
+  ['Extremely interested', 3],
   ['---', 4],
-  ['Already Completed', 5]
+  ['I completed this', 5]
 ]
 
-# enum clarity: [:poor, :okay, :great, :impressive]
-# enum difficulty_anticipated: ['far too easy', 'too easy', 'just right', 'too hard']
-# # enum difficulty_hindsight: ['far too easy', 'too easy', 'just right', 'too hard']
-# enum relevance: ['yes', 'maybe', 'no']
+CLARITY_OPTIONS = [
+  ['Not Clear', 0],
+  ['Somewhat Clear', 1],
+  ['Clear', 2],
+  ['Impressively Clear', 3]
+]
+
+DIFFICULTY_OPTIONS = [
+  ['Far Too Easy', 0],
+  ['Too Easy', 1],
+  ['Just Right', 2],
+  ['Too Hard', 3]
+]
+
+RELEVANCE_OPTIONS = [
+  ['Yes, relevant', 0],
+  ['Maybe relevant', 1],
+  ['Not relevant', 2],  
+]
