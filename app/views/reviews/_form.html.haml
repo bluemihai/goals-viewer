@@ -2,8 +2,8 @@
   = f.error_notification
 
   .form-inputs
-    .large-6.columns= f.association :player
-    .large-6.columns= f.association :goal, collection: Goal.order(:id), label_method: :id_title
+    .large-4.columns= f.association :player
+    .large-8.columns= f.association :goal, collection: Goal.order(:id), label_method: :id_title
     .large-4.columns= f.input :interest, collection: INTEREST_OPTIONS
     .large-4.columns= f.input :clarity, collection: (0..5)
     .large-4.columns= f.input :relevance, collection: (0..5)

@@ -1,11 +1,9 @@
-%h1 Goals
-
 %table#goals-table.display.compact.nowrap{"cellspacing" => 0, "width" => "100%"}
   %thead
     %tr
       %th.text-center #
       %th Labels
-      %th Title, GitHub Issue Link
+      %th Goal Title
       %th.text-center Author
       %th.text-center Created
       %th.text-center Tried
@@ -23,7 +21,7 @@
           = link_to do
             = image_tag(asset_path('octocat.png'), width: 30, height: 30)
         %td.text-center= link_to goal.created_by, User.github_path(goal.created_by)
-        %td.text-center= goal.created.strftime('%b-%d')
+        %td.text-center= goal.created.strftime('%m/%d')
         %td.text-center= link_to goal.tried, edit_goal_path(goal), title: "Tried by #{pluralize(goal.tried, 'group')}"
         %td.text-center= link_to goal.up, edit_goal_path(goal), title: "Upvoted #{pluralize(goal.up || 0, 'time')}"
         %td.text-center= link_to goal.down, edit_goal_path(goal), title: "Downvoted #{pluralize(goal.down || 0, 'time')}"
@@ -33,7 +31,5 @@
 %hr
 
 %p
-  Last Sync:
-  = Goal.last_update.strftime('%b-%d %H:%M %Z')
-
-= link_to 'New Goal', new_goal_path
+  Syncs hourly with GitHub issues.  Last sync
+  = Goal.last_update.in_time_zone('Pacific Time (US & Canada)').strftime('%b-%d %H:%M %Z')
