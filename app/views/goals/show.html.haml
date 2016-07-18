@@ -1,12 +1,20 @@
-%h4= "Goal ##{@goal.id}"
+%h4= "Goal ##{@goal.id}: #{@goal.title}"
 
-%p
-  %b Title
-  = link_to @goal.title, @goal.issue_path
+%b= link_to @goal.issue_path, @goal.issue_path
+%br
+Created By
+%b= link_to @goal.created_by, User.github_path(@goal.created_by)
 
-%p
-  %b Created By
-  = link_to @goal.created_by, User.github_path(@goal.created_by)
+%hr
+
+%h4= "#{@goal.reviews.count} Reviews"
+= render @goal.reviews
+
+%hr
+
+= markdown @goal.description
+
+%hr
 
 = link_to 'Edit', edit_goal_path(@goal)
 \|

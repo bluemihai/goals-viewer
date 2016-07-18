@@ -1,0 +1,33 @@
+%h1 Listing Reviews
+
+%table
+  %thead
+    %tr
+      %th Player
+      %th Goal
+      %th Interest
+      %th Clarity
+      %th Diff. anticipated
+      %th Diff. hindsight
+      %th Relevance
+      %th
+      %th
+      %th
+
+  %tbody
+    - @reviews.each do |review|
+      %tr
+        %td= link_to review.player.name, review.player
+        %td= link_to review.goal.title, review.goal
+        %td= review.interest
+        %td= review.clarity
+        %td= review.difficulty_anticipated
+        %td= review.difficulty_hindsight
+        %td= review.relevance
+        %td= link_to 'Show', review
+        %td= link_to 'Edit', edit_review_path(review)
+        %td= link_to 'Destroy', review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Review', new_review_path

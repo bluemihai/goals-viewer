@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Player:
+  = @review.player_id
+%p
+  %b Goal:
+  = @review.goal_id
+%p
+  %b Interest:
+  = @review.interest
+%p
+  %b Clarity:
+  = @review.clarity
+%p
+  %b Difficulty anticipated:
+  = @review.difficulty_anticipated
+%p
+  %b Difficulty hindsight:
+  = @review.difficulty_hindsight
+%p
+  %b Relevance:
+  = @review.relevance
+%p
+  %b Comments before:
+  = @review.comments_before
+%p
+  %b Comments after:
+  = @review.comments_after
+
+= link_to 'Edit', edit_review_path(@review)
+\|
+= link_to 'Back', reviews_path

@@ -1,6 +1,17 @@
 class Goal < ApplicationRecord
   extend Importable
 
+  has_many :reviews
+  has_many :players, through: :reviews, class_name: 'User', foreign_key: :player_id
+
+  def description
+    github_import['body']
+  end
+
+  def id_title
+    "#{id} — #{title}"
+  end
+
   def issue_path
     "http://github.com/GuildCrafts/web-development-js/issues/#{id}"
   end

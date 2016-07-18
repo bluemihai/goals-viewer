@@ -1,0 +1,16 @@
+= simple_form_for(@review) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .large-6.columns= f.association :player
+    .large-6.columns= f.association :goal, collection: Goal.order(:id), label_method: :id_title
+    .large-4.columns= f.input :interest
+    .large-4.columns= f.input :clarity
+    .large-4.columns= f.input :relevance
+    .large-6.columns= f.input :difficulty_anticipated
+    .large-6.columns= f.input :difficulty_hindsight
+    .large-6.columns= f.input :comments_before
+    .large-6.columns= f.input :comments_after
+
+  .form-actions
+    = f.button :submit

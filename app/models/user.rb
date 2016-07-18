@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  extend Importable
+
+  has_many :reviews
+  has_many :goals, through: :reviews
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -20,12 +25,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def github_path
+    "http://github.com/#{name}"
+  end
+
   def self.github_path(username)
     "http://github.com/#{username}"
   end
 
-  def self.sync_all
-    "https://api.github.com/orgs/GuildCrafts/members"
+  def self.import_all
+    member_hashes = github("https://api.github.com/orgs/GuildCrafts/members")
+    member_hashes.each do |login_hash|
+      User.create!(name: login_hash['login'], id: login_hash['id'], role: 'user')
+    end
   end
 
 end

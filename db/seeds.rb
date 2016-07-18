@@ -6,3 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # Environment variables (ENV['...']) can be set in the file .env file.
+
+User.import_all
+User.create(name: 'ANONYMOUS')

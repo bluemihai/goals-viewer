@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160716213811) do
+ActiveRecord::Schema.define(version: 20160717235022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20160716213811) do
     t.json     "github_import"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "goal_id"
+    t.integer  "interest"
+    t.integer  "clarity"
+    t.integer  "difficulty_anticipated"
+    t.integer  "difficulty_hindsight"
+    t.integer  "relevance"
+    t.text     "comments_before"
+    t.text     "comments_after"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

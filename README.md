@@ -40,8 +40,10 @@ Setting Up Your Development Environment
   * We are not currently emailing users, so don't worry about GMAIL_USERNAME
   * Create your own [local Github auth app](https://github.com/settings/applications/new)
     * Set Authorization callback URL to http://localhost:3000/auth/github/callback
-* bundle install
-* bin/rake db:setup
-* bin/rails s
-  * bundle exec guard
-* bundle exec rspec spec/
+```
+  bundle install
+  bin/rake db:setup
+  bin/rails s
+  bundle exec guard
+  bundle exec rspec spec/
+```
