@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717235022) do
+ActiveRecord::Schema.define(version: 20160718033515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "goals", force: :cascade do |t|
     t.json     "github_import"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "tried",         default: 0
+    t.integer  "up",            default: 0
+    t.integer  "down",          default: 0
   end
 
   create_table "reviews", force: :cascade do |t|

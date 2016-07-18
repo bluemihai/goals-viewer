@@ -1,6 +1,19 @@
-%h1 Editing goal
+%h1 Edit Goal
 
-= render 'form'
+%h4= @goal.title
+
+= simple_form_for(@goal) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .large-2.columns= f.input :up
+    .large-2.columns= f.input :down
+    .large-2.columns= f.input :tried
+    .large-6.columns
+  %hr
+
+  .form-actions
+    = f.button :submit
 
 = link_to 'Show', @goal
 \|

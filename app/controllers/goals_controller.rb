@@ -64,6 +64,6 @@ class GoalsController < ApplicationController
     end
 
     def goal_params
-      params.require(:goal).permit(:github_import)
+      params.require(:goal).permit(:github_import, :tried, :up, :down)
     end
 end

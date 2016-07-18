@@ -3,22 +3,32 @@
 %table
   %thead
     %tr
-      %th Goal #
-      %th Title
+      %th #
+      %th Labels
+      %th Title, GitHub Issue Link
       %th Author
       %th Created
-      %th
-      %th
+      %th Reviewed
+      %th Tried
+      %th 👍🏾
+      %th 👎🏼
 
   %tbody
     - @goals.each do |goal|
       %tr
         %td= link_to goal.id, goal.issue_path, title: 'See GitHub Issue/Goal'
-        %td= link_to "#{goal.title}...", goal
+        %td= render 'labels', goal: goal
+        %td
+          = link_to "#{goal.title}...", goal
+          = link_to do
+            = image_tag(asset_path('octocat.png'), width: 30, height: 30)
         %td= link_to goal.created_by, User.github_path(goal.created_by)
         %td= goal.created.strftime('%b-%d')
-        %td= link_to 'Edit', edit_goal_path(goal)
-        %td= link_to 'Destroy', goal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= pluralize(goal.reviews.count || 0, 'time')
+        %td= link_to pluralize(goal.tried, 'group'), edit_goal_path(goal)
+        %td= link_to goal.up, edit_goal_path(goal)
+        %td= link_to goal.down, edit_goal_path(goal)
+        / %td= link_to 'Destroy', goal, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %hr
 

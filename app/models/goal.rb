@@ -4,6 +4,19 @@ class Goal < ApplicationRecord
   has_many :reviews
   has_many :players, through: :reviews, class_name: 'User', foreign_key: :player_id
 
+  def labels_hash_array
+    return 'None' unless github_import && github_import['labels']
+    github_import['labels']
+  end
+
+  def labels
+    labels_hash_array.map{ |label| label['name'] }
+  end
+
+  def draft?
+    labels.include? "draft"
+  end
+
   def description
     github_import['body']
   end

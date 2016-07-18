@@ -1,5 +1,12 @@
-%h1 New goal
+%h1 Add Goal
 
-= render 'form'
+= simple_form_for(@goal) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :id, collection: @importable_ids, label: 'web-development-js issue id'
+
+  .form-actions
+    = f.button :submit
 
 = link_to 'Back', goals_path

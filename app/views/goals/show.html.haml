@@ -1,17 +1,22 @@
-%h4= "Goal ##{@goal.id}: #{@goal.title}"
+%h3= "Goal ##{@goal.id}: #{@goal.title}"
 
-%b= link_to @goal.issue_path, @goal.issue_path
-%br
 Created By
 %b= link_to @goal.created_by, User.github_path(@goal.created_by)
 
 %hr
+%h4 Labels
+= render 'labels', goal: @goal
+%hr
 
-%h4= "#{@goal.reviews.count} Reviews"
+%h4
+  = "#{@goal.reviews.count} Reviews"
+  \—
+  = link_to "Add Yours", new_review_path(goal_id: @goal.id)
 = render @goal.reviews
 
 %hr
 
+%h4= link_to @goal.issue_path, @goal.issue_path
 = markdown @goal.description
 
 %hr
