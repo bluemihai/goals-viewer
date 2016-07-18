@@ -5,6 +5,7 @@ LG Goals Viewer
 Schema
 ------
 ![schema](./docs/schema.png)
+[Load and edit](http://ondras.zarovi.cz/sql/demo/) as mihai-goals-viewer
 
 Requirements
 ------------
