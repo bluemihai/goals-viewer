@@ -48,3 +48,8 @@ Setting Up Your Development Environment
   bundle exec guard
   bundle exec rspec spec/
 ```
+
+Scaffolding
+===========
+
+Thanks to rails_apps_composer for making it so easy to save a lot of time.
