@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Practitioners",
+    "id": 2046859,
+    "slug": "practitioners",
+    "description": "Skilled practitioners of the craft.",
+    "permission": "pull",
+    "privacy": "closed",
+    "url": "https://api.github.com/teams/2046859",
+    "members_url": "https://api.github.com/teams/2046859/members{/member}",
+    "repositories_url": "https://api.github.com/teams/2046859/repos"
+  },
+  {
+    "name": "oakland",
+    "id": 2046959,
+    "slug": "oakland",
+    "description": "Oakland",
+    "permission": "pull",
+    "privacy": "secret",
+    "url": "https://api.github.com/teams/2046959",
+    "members_url": "https://api.github.com/teams/2046959/members{/member}",
+    "repositories_url": "https://api.github.com/teams/2046959/repos"
+  },
+  {
+    "name": "Moderators",
+    "id": 2057058,
+    "slug": "moderators",
+    "description": "",
+    "permission": "pull",
+    "privacy": "closed",
+    "url": "https://api.github.com/teams/2057058",
+    "members_url": "https://api.github.com/teams/2057058/members{/member}",
+    "repositories_url": "https://api.github.com/teams/2057058/repos"
+  }
+]
