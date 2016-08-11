@@ -19,6 +19,7 @@
         %td.text-center= link_to goal.id, goal.issue_path, title: 'See GitHub Issue/Goal'
         %td= render 'labels', goal: goal
         %td
+          = button_to "Review", new_review_path(goal_id: goal.id)
           = link_to "#{goal.title}...", goal
           = link_to goal.issue_path do
             = image_tag(asset_path('octocat.png'), width: 30, height: 30)
@@ -34,4 +35,5 @@
 
 %p
   Syncs hourly with GitHub issues.  Last sync
-  = Goal.last_update.in_time_zone('Pacific Time (US & Canada)').strftime('%b-%d %H:%M %Z')
+  - if Goal.last_update
+    = Goal.last_update.in_time_zone('Pacific Time (US & Canada)').strftime('%b-%d %H:%M %Z')
